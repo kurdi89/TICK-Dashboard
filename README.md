@@ -365,8 +365,8 @@ in the browser visit `localhost:8888`
 ### TO DO 
 
 - will try different data sources 
-- will add a clusted Kapacitor and InfluxDB using Docker Swarm in `./Docker/Cluster`
-- will add a clusted Kapacitor and InfluxDB using Kubernetes in `./Docker/Kubernetes`
+- will add a clustered Kapacitor and InfluxDB using Docker Swarm in `./Docker/Cluster`
+- will add a clustered Kapacitor and InfluxDB using Kubernetes in `./Docker/Kubernetes`
 - will try and Garafana and Prometheus
 - will try and Build a Vue app to show the Dashboard elements
 
