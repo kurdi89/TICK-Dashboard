@@ -368,9 +368,11 @@ in the browser visit `localhost:8888`
 ### TO DO 
 
 - will try different data sources [NATs, Kafka, StatsD, SalesForce, Webhooks, OpenSMTPD, Kibana ...etc, Check more input plugins for Telegraf](https://docs.influxdata.com/telegraf/v1.15/plugins/)
+- Build different Dashboards for Different sources, [Check other pre-built dashboards](https://docs.influxdata.com/chronograf/v1.8/guides/using-precreated-dashboards/)
+- and different [DataViz types](https://docs.influxdata.com/influxdb/v2.0/visualize-data/visualization-types/)
 - will add a clustered Kapacitor and InfluxDB using Docker Swarm in `./Docker/Cluster`
 - will add a clustered Kapacitor and InfluxDB using Kubernetes in `./Docker/Kubernetes`
-- will try and add Garafana and Prometheus
+- will try and add Garafana ~~and Prometheus~~
 - will try and Build a Vue app to show the Dashboard elements
 
 
