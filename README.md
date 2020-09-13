@@ -357,6 +357,9 @@ time                Available_Bytes
 SELECT mean("Available_Bytes") AS "available_bytes" FROM "telegraf"."autogen"."win_mem" WHERE time > 1599997804000000000
 ```
 
+
+- to view the dashboards : 
+
 in the browser visit `localhost:8888`
 
 `username:user`, `password:pass`
@@ -364,10 +367,10 @@ in the browser visit `localhost:8888`
 
 ### TO DO 
 
-- will try different data sources 
+- will try different data sources, NATs, Kafka... etc
 - will add a clustered Kapacitor and InfluxDB using Docker Swarm in `./Docker/Cluster`
 - will add a clustered Kapacitor and InfluxDB using Kubernetes in `./Docker/Kubernetes`
-- will try and Garafana and Prometheus
+- will try and add Garafana and Prometheus
 - will try and Build a Vue app to show the Dashboard elements
 
 
