@@ -216,5 +216,149 @@ Kapacitord # will start the Kapacitor Service
 ```
 
 
+### To Start : 
+
+*if setup, and PATH configured*, in seperate terminals run the commands
+
+```bash
+influxd
+# then
+telegraf
+# then 
+influx
+# then 
+Chronograf
+# then 
+Kapacitord
+```
+
+
+in the `influx`terminal, run `SHOW DATABASES`, `USE telegraf`, `SHOW MEASUREMENTS`, `SHOW QUERIES`, `SHOW SHARDS`
+
+- Example : 
+
+`SHOW FIELD KEYS` :
+
+```bash
+name: win_cpu
+fieldKey                fieldType
+--------                ---------
+Percent_DPC_Time        float
+Percent_Idle_Time       float
+Percent_Interrupt_Time  float
+Percent_Privileged_Time float
+Percent_Processor_Time  float
+Percent_User_Time       float
+
+name: win_disk
+fieldKey                  fieldType
+--------                  ---------
+Current_Disk_Queue_Length float
+Free_Megabytes            float
+Percent_Disk_Read_Time    float
+Percent_Disk_Time         float
+Percent_Disk_Write_Time   float
+Percent_Free_Space        float
+Percent_Idle_Time         float
+
+name: win_diskio
+fieldKey                  fieldType
+--------                  ---------
+Current_Disk_Queue_Length float
+Disk_Read_Bytes_persec    float
+Disk_Reads_persec         float
+Disk_Write_Bytes_persec   float
+Disk_Writes_persec        float
+Percent_Disk_Read_Time    float
+Percent_Disk_Time         float
+Percent_Disk_Write_Time   float
+
+name: win_mem
+fieldKey                            fieldType
+--------                            ---------
+Available_Bytes                     float
+Cache_Faults_persec                 float
+Demand_Zero_Faults_persec           float
+Page_Faults_persec                  float
+Pages_persec                        float
+Pool_Nonpaged_Bytes                 float
+Pool_Paged_Bytes                    float
+Standby_Cache_Core_Bytes            float
+Standby_Cache_Normal_Priority_Bytes float
+Standby_Cache_Reserve_Bytes         float
+Transition_Faults_persec            float
+
+name: win_net
+fieldKey                   fieldType
+--------                   ---------
+Bytes_Received_persec      float
+Bytes_Sent_persec          float
+Packets_Outbound_Discarded float
+Packets_Outbound_Errors    float
+Packets_Received_Discarded float
+Packets_Received_Errors    float
+Packets_Received_persec    float
+Packets_Sent_persec        float
+
+name: win_swap
+fieldKey      fieldType
+--------      ---------
+Percent_Usage float
+
+name: win_system
+fieldKey                fieldType
+--------                ---------
+Context_Switches_persec float
+Processor_Queue_Length  float
+System_Calls_persec     float
+System_Up_Time          float
+```
+
+Query : 
+
+```SQL
+SELECT Percent_Idle_Time FROM win_cpu LIMIT 10
+
+SELECT Available_Bytes  FROM win_mem LIMIT 10
+```
+
+```bash
+>  SELECT Percent_Idle_Time FROM win_cpu LIMIT 10
+name: win_cpu
+time                Percent_Idle_Time
+----                -----------------
+1599997804000000000 88.06343078613281
+1599997804000000000 89.12462615966797
+1599997804000000000 88.06210327148438
+1599997804000000000 91.40750885009766
+1599997804000000000 88.96546173095703
+1599997810000000000 88.12652587890625
+1599997810000000000 84.52249145507812
+1599997810000000000 85.84213256835938
+1599997810000000000 84.53411865234375
+1599997810000000000 86.1854019165039
+> SELECT Available_Bytes  FROM win_mem LIMIT 10
+name: win_mem
+time                Available_Bytes
+----                ---------------
+1599997804000000000 412909568
+1599997810000000000 376549376
+1599997820000000000 365977600
+1599997830000000000 337690624
+1599997841000000000 653959168
+1599997850000000000 653037568
+1599997860000000000 595034112
+1599997870000000000 590839808
+1599997880000000000 596590592
+1599997890000000000 568860672
+```
+
+```SQL
+SELECT mean("Available_Bytes") AS "available_bytes" FROM "telegraf"."autogen"."win_mem" WHERE time > 1599997804000000000
+```
+
+in the browser visit `localhost:8888`
+
+`username:user`, `password:pass`
 
 Download [References](https://portal.influxdata.com/downloads/)
