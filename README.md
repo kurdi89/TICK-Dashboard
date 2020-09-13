@@ -367,7 +367,7 @@ in the browser visit `localhost:8888`
 
 ### TO DO 
 
-- will try different data sources, NATs, Kafka... etc
+- will try different data sources [NATs, Kafka, StatsD, SalesForce, Webhooks, OpenSMTPD, Kibana ...etc, Check more input plugins for Telegraf](https://docs.influxdata.com/telegraf/v1.15/plugins/)
 - will add a clustered Kapacitor and InfluxDB using Docker Swarm in `./Docker/Cluster`
 - will add a clustered Kapacitor and InfluxDB using Kubernetes in `./Docker/Kubernetes`
 - will try and add Garafana and Prometheus
